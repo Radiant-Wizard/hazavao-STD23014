@@ -22,7 +22,7 @@ public class HazavaoController {
 
   @GetMapping("/hazavao")
   public String hazavao(@RequestParam String teny) {
-    String prompt = "give me the meaning of this word : " + teny;
+    String prompt = "inona ny dikan'ito teny ito : " + teny;
     OpenAIClient client = OpenAIOkHttpClient
         .builder()
         .apiKey(System.getenv("OPENAI_API_KEY"))
