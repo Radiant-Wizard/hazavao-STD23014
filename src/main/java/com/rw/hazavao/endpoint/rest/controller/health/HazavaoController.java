@@ -28,21 +28,12 @@ public class HazavaoController {
         .apiKey(System.getenv("OPENAI_API_KEY"))
         .build();
 
-    ChatCompletionCreateParams params = ChatCompletionCreateParams
-        .builder()
+    ChatCompletionCreateParams params = ChatCompletionCreateParams.builder()
         .addUserMessage(prompt)
         .model(ChatModel.GPT_3_5_TURBO)
         .build();
 
-    ChatCompletion chatCompletion = client
-        .chat()
-        .completions()
-        .create(params);
-    return chatCompletion
-        .choices()
-        .getFirst()
-        .message()
-        .content()
-        .orElse("nothing found");
+    ChatCompletion chatCompletion = client.chat().completions().create(params);
+    return chatCompletion.choices().getFirst().message().content().toString();
   }
 }
