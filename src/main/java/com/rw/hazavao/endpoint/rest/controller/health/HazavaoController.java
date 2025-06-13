@@ -44,6 +44,6 @@ public class HazavaoController {
         .getFirst()
         .message()
         .content()
-        .toString();
+        .orElse("nothing found");
   }
 }
