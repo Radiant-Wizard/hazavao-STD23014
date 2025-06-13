@@ -34,6 +34,6 @@ public class HazavaoController {
         .build();
 
     ChatCompletion chatCompletion = client.chat().completions().create(params);
-    return chatCompletion.choices().getFirst().message().content().toString();
+    return chatCompletion.choices().getFirst().message().content().orElse("tsy azoko tsara!");
   }
 }
